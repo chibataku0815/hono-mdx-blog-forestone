@@ -1,3 +1,4 @@
+import path from "node:path"
 import pages from "@hono/vite-cloudflare-pages";
 import ssg from "@hono/vite-ssg";
 import mdx from "@mdx-js/rollup";
