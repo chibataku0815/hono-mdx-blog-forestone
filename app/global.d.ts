@@ -1,11 +1,13 @@
-import {} from 'hono'
-import type { Meta } from './types'
+import {} from "hono";
 
-declare module 'hono' {
-  interface ContextRenderer {
-    (
-      content: string | Promise<string>,
-      meta?: Meta & { frontmatter: Meta }
-    ): Response | Promise<Response>
-  }
+type Head = {
+  title?: string;
+  description?: string;
+};
+
+declare module "hono" {
+  type ContextRenderer = (
+    content: string | Promise<string>,
+    head?: Head & { frontmatter?: Head; description?: string },
+  ) => Response | Promise<Response>;
 }
